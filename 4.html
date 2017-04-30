@@ -72,90 +72,113 @@
 		}
 		body {
 			min-width: 240px;
-			padding: 0 40px;
+			padding: 4vh 40px;
 			text-align: center;
 		}
-		#animation_container {
+		.wrapper-animation {
 			position: relative;
-			left: 50%;
-			-moz-transform: translateX(-47%);
-			-ms-transform: translateX(-47%);
-			-webkit-transform: translateX(-47%);
-			-o-transform: translateX(-47%);
-			transform: translateX(-47%);
-			width: 333px;
-			height: 333px;
-			margin: 77px 0 45px;
-			background-color: #fff;
+			height: 55vh;
+			min-height: 333px;
 		}
-		#canvas {
-			position: absolute;
-			width: 333px;
-			height: 333px;
-			display: block;
-			background-color: #fff;"
-		}
+		#animation_container,
 		#dom_overlay_container {
 			position: absolute;
-			left: 0;
 			top: 0;
-			width: 333px;
-			height: 333px;
+			left: 0;
+			bottom: 0;
+			right: 0;
+			margin: auto;
+		}
+		#animation_container {
+			padding: 0 0 0 2.8%;
+			background-color: #fff;
+		}
+		#dom_overlay_container {
 			pointer-events: none;
 			overflow: hidden;
 			display: block;
+		}
+		#canvas {
+			display: block;
+			background-color: #fff;
+		}
+		.wrapper-nosite {
+			height: 5vh;
+			min-height: 30px;
 		}
 		h1 {
 			font: 600 27px IntroRegular, sans-serif;
 			line-height: 30px;
 			letter-spacing: 2.3px;
 		}
-		p,
-		a {
+		.wrapper-if {
+			height: 13vh;
+			min-height: 66px;
+		}
+		.wrapper-if > p,
+		.wrapper-if > P > a {
 			font: 600 16px Arial, sans-serif;
 			line-height: 33px;
 			letter-spacing: 0.1px;
 			color: #3f678e;
 			text-decoration: none;
 		}
-		p {
-			padding: 10px;
+		.wrapper-if > p {
+			padding: 0 10px;
 		}
-		.text-bottom {
-			margin-top: 40px;
-			opacity: 0.42;
-			font-size: 15px;
+		p.text-bottom,
+		p.text-bottom > a {
+			font: 600 15px Arial, sans-serif;
 			letter-spacing: 0.2px;
+			color: #3f678e;
+			text-decoration: none;
 		}
-		@media (max-width: 480px) {
-			#animation_container {
-				width: 233.1px;
-				height: 233.1px;
-				margin: -10px 0 0;
-				-moz-transform: translateX(-50%) scale(0.7);
-				-ms-transform: translateX(-50%) scale(0.7);
-				-webkit-transform: translateX(-50%) scale(0.7);
-				-o-transform: translateX(-50%) scale(0.7);
-				transform: translateX(-50%) scale(0.7);
+		p.text-bottom {
+			opacity: 0.42;
+		}
+		@media (max-width: 767px), (max-height: 767px) {
+			body {
+				padding: 0 40px;
+			}
+			.wrapper-animation {
+				height: 50.5vh;
+				min-height: 233.1px;
+			}
+			#animation_container,
+			#dom_overlay_container,
+			#canvas
+			{
+				width: 233.1px !important;
+				height: 233.1px !important;
+			}
+			.wrapper-nosite {
+				height: 13vh;
+				min-height: 60px;
 			}
 			h1 {
 				font-size: 21px;
 				letter-spacing: 1.7px;
-				margin-bottom: 13px;
 			}
-			.text-bottom {
-				margin-top: 31px;
+			.wrapper-if {
+				height: 24.5vh;
+				min-height: 99px;
 			}
 		}
 	</style>
 </head>
 <body onload="init();">
-	<div id="animation_container">
-		<canvas id="canvas"></canvas>
-		<div id="dom_overlay_container"></div>
+	<div class="wrapper-animation">
+		<div id="animation_container">
+			<canvas id="canvas"></canvas>
+			<div id="dom_overlay_container"></div>
+		</div>
 	</div>
-	<h1>НА ЭТОМ ДОМЕНЕ НЕТ САЙТА</h1>
-	<p>Если Вы хотите заказать услуги хостинга, заходите к нам на <a href="https://fozzy.com/">Fozzy.com</a></p>
+	<div class="wrapper-nosite">
+		<h1>НА ЭТОМ ДОМЕНЕ НЕТ САЙТА</h1>
+	</div>
+	<div class="wrapper-if">
+		<p>Если Вы хотите заказать услуги хостинга, заходите к нам на <a href="https://fozzy.com/">Fozzy.com</a></p>
+	</div>
 	<p class="text-bottom">Страничка хостится на <a href="https://fozzy.com/">Fozzy</a></p>
 </body>
 </html>
