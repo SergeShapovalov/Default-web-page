@@ -3,7 +3,7 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>4</title>
+	<title>New website for Fozzy</title>
 	<script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
 	<script src="4.js?1492075001840"></script>
 	<script>
@@ -22,39 +22,8 @@
 				createjs.Ticker.setFPS(lib.properties.fps);
 				createjs.Ticker.addEventListener("tick", stage);
 			}
-			function makeResponsive(isResp, respDim, isScale, scaleType) {
-				var lastW, lastH, lastS=1;
-				window.addEventListener('resize', resizeCanvas);
-				resizeCanvas();
-				function resizeCanvas() {
-					var w = lib.properties.width, h = lib.properties.height;
-					var iw = window.innerWidth, ih=window.innerHeight;
-					var pRatio = window.devicePixelRatio || 1, xRatio=iw/w, yRatio=ih/h, sRatio=1;
-					if(isResp) {
-						if((respDim=='width'&&lastW==iw) || (respDim=='height'&&lastH==ih)) {
-							sRatio = lastS;
-						}
-						else if(!isScale) {
-							if(iw<w || ih<h)
-								sRatio = Math.min(xRatio, yRatio);
-						}
-						else if(scaleType==1) {
-							sRatio = Math.min(xRatio, yRatio);
-						}
-						else if(scaleType==2) {
-							sRatio = Math.max(xRatio, yRatio);
-						}
-					}
-					canvas.width = w*pRatio*sRatio;
-					canvas.height = h*pRatio*sRatio;
-					canvas.style.width = dom_overlay_container.style.width = anim_container.style.width =  w*sRatio+'px';
-					canvas.style.height = anim_container.style.height = dom_overlay_container.style.height = h*sRatio+'px';
-					stage.scaleX = pRatio*sRatio;
-					stage.scaleY = pRatio*sRatio;
-					lastW = iw; lastH = ih; lastS = sRatio;
-				}
-			}
-			makeResponsive(false,'both',false,1);
+			canvas.width = 333;
+			canvas.height = 333;
 			fnStartAnimation();
 		}
 	</script>
@@ -71,114 +40,119 @@
 			padding: 0;
 		}
 		body {
-			min-width: 240px;
-			padding: 4vh 40px;
+			position: relative;
+			height: 100vh;
+			min-width: 320px;
+			min-height: 615px;
 			text-align: center;
 		}
-		.wrapper-animation {
-			position: relative;
-			height: 55vh;
-			min-height: 333px;
-		}
-		#animation_container,
-		#dom_overlay_container {
+		.wrapper {
 			position: absolute;
-			top: 0;
+			height: 615px;
 			left: 0;
-			bottom: 0;
 			right: 0;
+			top: 0;
+			bottom: 0;
 			margin: auto;
+			padding: 0 40px;
+		}
+		#dom_overlay_container,
+		#animation_container,
+		#canvas
+		{
+			width: 333px;
+			height: 333px;
+		}
+		#dom_overlay_container {
+			margin: 0 auto;
+			display: block;
+			pointer-events: none;
+			overflow: hidden;
 		}
 		#animation_container {
+			margin: 0 auto 45px;
 			padding: 0 0 0 2.8%;
 			background-color: #fff;
 		}
-		#dom_overlay_container {
-			pointer-events: none;
-			overflow: hidden;
-			display: block;
-		}
 		#canvas {
+			position: absolute;
 			display: block;
 			background-color: #fff;
 		}
-		.wrapper-nosite {
-			height: 5vh;
-			min-height: 30px;
-		}
 		h1 {
+			margin: 8px 0;
 			font: 600 27px IntroRegular, Arial Black, Impact, Arial, sans-serif;
 			line-height: 30px;
-			letter-spacing: 2.3px;
+			letter-spacing: 2.7px;
 		}
-		.wrapper-if {
-			height: 13vh;
-			min-height: 66px;
-		}
-		.wrapper-if > p,
-		.wrapper-if > P > a {
-			font: 600 16px Arial, Tahoma, Verdana, sans-serif;
+		p.text-order,
+		p.text-order > a {
+			font: 16px Arial, Tahoma, Verdana, sans-serif;
 			line-height: 33px;
-			letter-spacing: 0.1px;
+			letter-spacing: 0.7px;
 			color: #3f678e;
 			text-decoration: none;
+			text-shadow: -0.1px -0.1px, 0.1px -0.1px, -0.1px 0.1px, 0.1px 0.1px;
 		}
-		.wrapper-if > p {
+		p.text-order {
 			padding: 0 10px;
 		}
 		p.text-bottom,
 		p.text-bottom > a {
-			font: 600 15px Arial, sans-serif;
-			letter-spacing: 0.2px;
+			font: 15px Arial, sans-serif;
+			letter-spacing: 0.6px;
 			color: #3f678e;
 			text-decoration: none;
+			text-shadow: -0.1px -0.1px, 0.1px -0.1px, -0.1px 0.1px, 0.1px 0.1px;
 		}
 		p.text-bottom {
+			margin-top: 67px;
 			opacity: 0.42;
 		}
 		@media (max-width: 767px), (max-height: 767px) {
 			body {
-				padding: 0 40px;
+				min-height: 558px;
 			}
-			.wrapper-animation {
-				height: 50.5vh;
-				min-height: 233.1px;
+			.wrapper {
+				height: 558px;
 			}
 			#animation_container,
 			#dom_overlay_container,
 			#canvas
 			{
-				width: 233.1px !important;
-				height: 233.1px !important;
+				width: 233.1px;
+				height: 233.1px;
 			}
-			.wrapper-nosite {
-				height: 13vh;
-				min-height: 60px;
+			#animation_container {
+				margin: 0 auto 48px;
+				padding: 0;
 			}
 			h1 {
+				margin-bottom: 24px;
 				font-size: 21px;
-				letter-spacing: 1.7px;
+				letter-spacing: 2px;
 			}
-			.wrapper-if {
-				height: 24.5vh;
-				min-height: 99px;
+			p.text-bottom {
+				margin-top: 59px;
 			}
 		}
 	</style>
 </head>
 <body onload="init();">
-	<div class="wrapper-animation">
+	<div class="wrapper">
 		<div id="animation_container">
 			<canvas id="canvas"></canvas>
 			<div id="dom_overlay_container"></div>
 		</div>
-	</div>
-	<div class="wrapper-nosite">
 		<h1>НА ЭТОМ ДОМЕНЕ НЕТ САЙТА</h1>
+		<p class="text-order">
+			Если Вы хотите заказать услуги хостинга, заходите к нам на
+			<a href="https://fozzy.com/">Fozzy.com</a>
+		</p>
+		<p class="text-bottom">
+			Страничка хостится на
+			<a href="https://fozzy.com/">Fozzy</a>
+		</p>
 	</div>
-	<div class="wrapper-if">
-		<p>Если Вы хотите заказать услуги хостинга, заходите к нам на <a href="https://fozzy.com/">Fozzy.com</a></p>
-	</div>
-	<p class="text-bottom">Страничка хостится на <a href="https://fozzy.com/">Fozzy</a></p>
 </body>
 </html>
