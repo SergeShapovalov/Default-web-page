@@ -4,30 +4,35 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>New website for Fozzy</title>
-	<script src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
-	<script src="4.js?1492075001840"></script>
+	<script defer src="https://code.createjs.com/createjs-2015.11.26.min.js"></script>
+	<script defer src="4.js?1492075001840"></script>
 	<script>
 		var canvas, stage, exportRoot, anim_container, dom_overlay_container, fnStartAnimation;
+
 		function init() {
 			canvas = document.getElementById("canvas");
 			anim_container = document.getElementById("animation_container");
 			dom_overlay_container = document.getElementById("dom_overlay_container");
 			handleComplete();
 		}
+
 		function handleComplete() {
 			exportRoot = new lib._4();
 			stage = new createjs.Stage(canvas);
 			stage.addChild(exportRoot);
+
 			fnStartAnimation = function() {
 				createjs.Ticker.setFPS(lib.properties.fps);
 				createjs.Ticker.addEventListener("tick", stage);
 			}
+
 			canvas.width = 333;
 			canvas.height = 333;
 			fnStartAnimation();
 		}
 	</script>
-	<style type="text/css">
+
+	<style>
 		@font-face {
 			font-family: "IntroRegular";
 			src: url("fonts/IntroRegular.eot");
@@ -35,23 +40,28 @@
 			url("fonts/IntroRegular.woff") format("woff"),
 			url("fonts/IntroRegular.ttf") format("truetype");
 		}
-		* {
+
+		html,
+		body {
+			position: relative;
+			min-height: 615px;
+			height: 100%;
 			margin: 0;
 			padding: 0;
 		}
-		html,
-		body {
-			height: 100%;
+
+		h1 {
+			font: 600 27px/30px "IntroRegular", "Arial Black", Impact, Arial, sans-serif;
+			text-transform: uppercase;
+			letter-spacing: 2.7px;
+			margin: 8px 0;
 		}
-		body {
-			position: relative;
-			min-width: 320px;
-			min-height: 615px;
-			text-align: center;
-		}
+
 		.wrapper {
 			position: absolute;
 			height: 615px;
+			text-align: center;
+			min-width: 240px;
 			left: 0;
 			right: 0;
 			top: 0;
@@ -59,102 +69,105 @@
 			margin: auto;
 			padding: 0 40px;
 		}
+
 		#dom_overlay_container,
 		#animation_container,
-		#canvas
-		{
+		#canvas {
 			width: 333px;
 			height: 333px;
+			background-color: #fff;
 		}
+
 		#dom_overlay_container {
 			margin: 0 auto;
-			display: block;
 			pointer-events: none;
 			overflow: hidden;
 		}
+
 		#animation_container {
 			margin: 0 auto 45px;
-			padding: 0 0 0 25px;
-			background-color: #fff;
+			padding-left: 25px;
 		}
+
 		#canvas {
 			position: absolute;
 			display: block;
-			background-color: #fff;
 		}
-		h1 {
-			margin: 8px 0;
-			font: 600 27px IntroRegular, Arial Black, Impact, Arial, sans-serif;
-			line-height: 30px;
-			letter-spacing: 2.7px;
-		}
-		p.text-order,
-		p.text-order > a {
-			font: 16px Arial, Tahoma, Verdana, sans-serif;
-			line-height: 33px;
-			letter-spacing: 0.7px;
+
+		a,
+		a:visited {
 			color: #3f678e;
 			text-decoration: none;
-			text-shadow: -0.1px -0.1px, 0.1px -0.1px, -0.1px 0.1px, 0.1px 0.1px;
 		}
-		p.text-order {
+
+		.text-order,
+		.text-hosted {
+			color: #3f678e;
+			text-shadow: 0 0 0 #3f678e;
+		}
+
+		.text-order {
+			font: 16px/33px Arial, Helvetica, sans-serif;
+			letter-spacing: 0.7px;
+			margin: 0;
 			padding: 0 10px;
 		}
-		p.text-bottom,
-		p.text-bottom > a {
-			font: 15px Arial, sans-serif;
+
+		.text-hosted {
+			font: 15px Arial, Helvetica, sans-serif;
 			letter-spacing: 0.6px;
-			color: #3f678e;
-			text-decoration: none;
-			text-shadow: -0.1px -0.1px, 0.1px -0.1px, -0.1px 0.1px, 0.1px 0.1px;
-		}
-		p.text-bottom {
 			margin-top: 67px;
 			opacity: 0.42;
 		}
+
 		@media (max-width: 767px), (max-height: 767px) {
+
+			html,
 			body {
 				min-height: 558px;
 			}
+
+			h1 {
+				font-size: 21px;
+				margin-bottom: 24px;
+				letter-spacing: 2px;
+			}
+
 			.wrapper {
 				height: 558px;
 			}
+
 			#animation_container,
 			#dom_overlay_container,
-			#canvas
-			{
-				width: 233.1px;
-				height: 233.1px;
+			#canvas {
+				width: 233px;
+				height: 233px;
 			}
+
 			#animation_container {
 				margin: 0 auto 48px;
 				padding: 0;
 			}
-			h1 {
-				margin-bottom: 24px;
-				font-size: 21px;
-				letter-spacing: 2px;
-			}
-			p.text-bottom {
+
+			.text-hosted {
 				margin-top: 59px;
 			}
 		}
 	</style>
 </head>
+
 <body onload="init();">
 	<div class="wrapper">
 		<div id="animation_container">
 			<canvas id="canvas"></canvas>
 			<div id="dom_overlay_container"></div>
 		</div>
-		<h1>НА ЭТОМ ДОМЕНЕ НЕТ САЙТА</h1>
+		<h1>На этом домене нет сайта</h1>
 		<p class="text-order">
-			Если Вы хотите заказать услуги хостинга, заходите к нам на
-			<a href="https://fozzy.com/">Fozzy.com</a>
+			Если Вы хотите заказать услуги хостинга, заходите к нам на <a href="https://fozzy.com/">Fozzy.com</a>
 		</p>
-		<p class="text-bottom">
-			Страничка хостится на
-			<a href="https://fozzy.com/">Fozzy</a>
+		<p class="text-hosted">
+			Страничка хостится на <a href="https://fozzy.com/">Fozzy</a>
 		</p>
 	</div>
 </body>
